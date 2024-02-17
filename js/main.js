@@ -10,9 +10,13 @@ const $doneUl = document.querySelector("#done_ul");
 const { getTodoList, addTodoList, updateTodoState, deleteTodoList } =
   todoListCloser;
 
-export const renderTodoList = () => {
+const resetUl = () => {
   $todoUl.innerHTML = "";
   $doneUl.innerHTML = "";
+};
+
+export const renderTodoList = () => {
+  resetUl();
   getTodoList().forEach((todo) => {
     if (todo.state === TodoState.todo) $todoUl.prepend(createTodoCard(todo));
     else $doneUl.prepend(createTodoCard(todo));
