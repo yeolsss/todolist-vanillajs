@@ -7,7 +7,7 @@ export const todoListCloser = (function () {
     },
 
     addTodoList(todo) {
-      return todoList.unshift(todo);
+      todoList.push(todo);
     },
 
     updateTodoState(todoId) {

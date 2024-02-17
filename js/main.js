@@ -58,6 +58,6 @@ $todoForm.addEventListener("submit", (event) => {
   // todoList의 값을 li태그로 만들기
   renderTodoList();
 
-  // input 값 reset;
+  // input reset;
   $todoInput.value = "";
 });
