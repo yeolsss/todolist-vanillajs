@@ -21,7 +21,7 @@ export const renderTodoList = () => {
 
 /**
  * todo card 생성 함수
- * @param {string} todo
+ * @param {Todo} todo
  */
 const createTodoCard = (todo) => {
   const todoLi = document.createElement("li");
