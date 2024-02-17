@@ -1,6 +1,6 @@
 import { TodoState } from "./enum.js";
 
-export class Todo {
+export default class Todo {
   constructor(id, todo, state) {
     this._id = id;
     this._todo = todo;

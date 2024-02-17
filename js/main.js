@@ -1,7 +1,7 @@
-import { Todo } from "./todoClass.js";
 import { ButtonType, TodoState } from "./enum.js";
-import { todoListCloser } from "./listCloser.js";
 import { todoButton } from "./util.js";
+import todoListCloser from "./closer.js";
+import Todo from "./todoClass";
 
 // tag 선언
 const $todoForm = document.querySelector("#todo_form");

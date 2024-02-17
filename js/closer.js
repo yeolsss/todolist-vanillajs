@@ -1,4 +1,4 @@
-export const todoListCloser = (function () {
+const todoListCloser = (function () {
   let todoList = [];
 
   return {
@@ -24,3 +24,5 @@ export const todoListCloser = (function () {
     },
   };
 })();
+
+export default todoListCloser;
