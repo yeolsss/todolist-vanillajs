@@ -7,12 +7,13 @@ import { todoButton } from "./util.js";
 const $todoForm = document.querySelector("#todo_form");
 const $todoUl = document.querySelector("#todo_ul");
 const $doneUl = document.querySelector("#done_ul");
-const todoList = todoListCloser;
+const { getTodoList, addTodoList, updateTodoState, deleteTodoList } =
+  todoListCloser;
 
 export const renderTodoList = () => {
   $todoUl.innerHTML = "";
   $doneUl.innerHTML = "";
-  todoList.getTodoList().forEach((todo) => {
+  getTodoList().forEach((todo) => {
     if (todo.state === TodoState.todo) $todoUl.prepend(createTodoCard(todo));
     else $doneUl.prepend(createTodoCard(todo));
   });
@@ -25,8 +26,8 @@ export const renderTodoList = () => {
 const createTodoCard = (todo) => {
   const todoLi = document.createElement("li");
   todoLi.setAttribute("id", todo.id);
-  const deleteBtn = todoButton(todoList.deleteTodoList, ButtonType.delete);
-  const updateBtn = todoButton(todoList.updateTodoState, ButtonType.update);
+  const deleteBtn = todoButton(deleteTodoList, ButtonType.delete);
+  const updateBtn = todoButton(updateTodoState, ButtonType.update);
   const todoSpan = document.createElement("span");
   todoSpan.innerText = `${todo.todo}`;
 
@@ -52,7 +53,7 @@ $todoForm.addEventListener("submit", (event) => {
   // 입력 받은 todo 객체 생성하기
   const todo = new Todo(Date.now(), inputValue, TodoState.todo);
   // todoList closer에 담기
-  todoList.addTodoList(todo);
+  addTodoList(todo);
 
   // todoList의 값을 li태그로 만들기
   renderTodoList();
